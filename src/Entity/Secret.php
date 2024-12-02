@@ -101,7 +101,8 @@ class Secret
         return match ($headerType) {
             'application/xml' => 'xml',
             'application/json' => 'json',
-            'application/x-yaml' => 'yaml'
+            'application/x-yaml' => 'yaml',
+            default => 'json'
         };
     }
 }
