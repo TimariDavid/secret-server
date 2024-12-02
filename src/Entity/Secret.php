@@ -96,6 +96,15 @@ class Secret
         $this->remainingViews = $remainingViews;
     }
 
+    public static function getAcceptedHeaderTypes(): array
+    {
+        return [
+            'application/json',
+            'application/xml',
+            'application/x-yaml',
+        ];
+    }
+
     public static function getSerializerFormat($headerType): string
     {
         return match ($headerType) {
