@@ -27,11 +27,14 @@ doctrine:
         controller_resolver:
             auto_mapping: false
 
-when@test:
-    doctrine:
-        dbal:
-            # "TEST_TOKEN" is typically set by ParaTest
-            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+# Azért van ez kikommentelve, mert a testek futtatásához a éles adatbázist használom,
+# mivel a szolgáltató (ahol van a domain és a tárhely) csak egy adatbázist enged használni.
+#
+#when@test:
+#    doctrine:
+#        dbal:
+#            # "TEST_TOKEN" is typically set by ParaTest
+#            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
 
 when@prod:
     doctrine:
