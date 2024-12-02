@@ -39,6 +39,10 @@ class SecretController extends AbstractController
 
         $headerType = $request->headers->get('Accept');
 
+        if (!in_array($headerType, Secret::getAcceptedHeaderTypes())) {
+            $headerType = 'application/json';
+        }
+
         $serializerFormat = Secret::getSerializerFormat($headerType);
 
         if (count($errors) > 0) {

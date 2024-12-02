@@ -101,7 +101,7 @@ class Secret
         return [
             'application/json',
             'application/xml',
-            'application/x-yaml',
+            'application/x-yaml'
         ];
     }
 
