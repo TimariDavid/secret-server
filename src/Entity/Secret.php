@@ -96,6 +96,11 @@ class Secret
         $this->remainingViews = $remainingViews;
     }
 
+    /**
+     * Returns the accepted headers.
+     *
+     * @return array Accepted header types
+     */
     public static function getAcceptedHeaderTypes(): array
     {
         return [
@@ -105,7 +110,14 @@ class Secret
         ];
     }
 
-    public static function getSerializerFormat($headerType): string
+    /**
+     * Returns the serializer format from the header type.
+     *
+     * @param string $headerType Header type
+     *
+     * @return string Serializer format
+     */
+    public static function getSerializerFormat(string $headerType): string
     {
         return match ($headerType) {
             'application/xml' => 'xml',

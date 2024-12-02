@@ -15,6 +15,17 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class SecretController extends AbstractController
 {
+    /**
+     * It creates a new secret.
+     * If it cannot create it, it returns an error message to the user in response.
+     *
+     * @param Request $request Request
+     * @param EntityManagerInterface $entityManager EntityManager
+     * @param SerializerInterface $serializer Serializer
+     * @param ValidatorInterface $validator Validator
+     *
+     * @return Response HTTP Response
+     */
     #[Route('/secret', name: 'add_secret', methods: ['POST'])]
     public function addSecret(
         Request $request,
@@ -61,6 +72,17 @@ class SecretController extends AbstractController
         );
     }
 
+    /**
+     * It creates a new secret.
+     * If it cannot create it, it returns an error message to the user in response.
+     *
+     * @param string $hash Hash
+     * @param EntityManagerInterface $entityManager EntityManager
+     * @param SerializerInterface $serializer Serializer
+     * @param Request $request Request
+     *
+     * @return Response HTTP Response
+     */
     #[Route('/secret/{hash}', name: 'get_secret', methods: ['GET'])]
     public function getSecret(
         string $hash,
